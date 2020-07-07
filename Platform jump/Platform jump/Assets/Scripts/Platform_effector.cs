@@ -13,9 +13,11 @@ public class Platform_effector : MonoBehaviour
     Rigidbody2D rb2D;
     public bool movingsidways = false;
     Follow_Player follow_player;
+    public Follow_Player spawn;
 
     void Start()
     {
+        spawn = GameObject.Find("Follow_Player_Object").GetComponent<Follow_Player>();
         follow_player = GameObject.Find("Follow_Player_Object").GetComponent<Follow_Player>();
         if (gameObject.GetComponent<Rigidbody2D>())
         {
@@ -108,17 +110,19 @@ public class Platform_effector : MonoBehaviour
         if (collision.gameObject.tag == "Player" && this.tag == "Insta_Break")
         {
             Destroy(this.gameObject.transform.parent.gameObject);
+            spawn.testing_area();
         }
         else if (collision.gameObject.tag == "Player" && this.tag == "One_Jump")
         {
             collision.gameObject.transform.GetChild(1).GetComponent<Player_Movement>().Jump_Up();
+            spawn.testing_area();
             Destroy(this.gameObject.transform.parent.gameObject);
         }
         else if (collision.gameObject.tag == "Player" && this.tag == "Standard_Platform")
         {
             collision.gameObject.transform.GetChild(1).GetComponent<Player_Movement>().Jump_Up();
         }
-        else if (collision.gameObject.tag != "Player")
+        else if (collision.gameObject.tag != "Player" && collision.gameObject.name != "Follow_Player_Object")
         {
             GameObject parent = collision.gameObject;
             bool final_Parent = false;

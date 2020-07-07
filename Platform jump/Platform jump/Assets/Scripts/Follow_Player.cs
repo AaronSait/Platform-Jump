@@ -9,6 +9,7 @@ public class Follow_Player : MonoBehaviour
     Transform hight_To_Spawn;
     float old_Posion, new_Posion, spawn_CD, spawn_Timer;
     public GameObject Platform_1, Platform_2, Platform_3, Platform_4, Platform_5, test_Obj;
+    public UI_Controller ui_Controller;
     void Start()
     {
         hight_To_Spawn = GameObject.Find("Hight To Spawn Platform").transform;
@@ -35,6 +36,10 @@ public class Follow_Player : MonoBehaviour
                 can_Spawn = true;
             else
                 spawn_Timer -= Time.deltaTime;
+        }
+        else
+        {
+            ui_Controller.game_Over();
         }
     }
 

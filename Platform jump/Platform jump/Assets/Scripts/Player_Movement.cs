@@ -8,6 +8,7 @@ public class Player_Movement : MonoBehaviour
     float movement_Speed, max_movement_Speed;
     float fall_Speed, jump_CD, jump_CDR;
     Vector3 jump_Force = new Vector3(0, 20f, 0);
+    public UI_Controller uiController;
     
 
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class Player_Movement : MonoBehaviour
         rb2D.velocity = movement;
         if (jump_CDR >= 0)
             jump_CDR -= Time.deltaTime;
-
+        uiController.update_Score((int)this.transform.position.y);
     }
 
     public void Jump_Up()

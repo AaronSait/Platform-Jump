@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Hitting_Walls.cs" />
     <Compile Include="Assets\Scripts\Platform_effector.cs" />
     <Compile Include="Assets\Scripts\Player_Movement.cs" />
+    <Compile Include="Assets\Scripts\UI_Controller.cs" />
     <Compile Include="Assets\Scripts\test_Script.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/aaron/Documents/GitHub/Platform-Jump/Platform jump/Platform jump/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
