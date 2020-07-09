@@ -8,8 +8,10 @@ public class Follow_Player : MonoBehaviour
     bool can_Spawn, yes_Or_No;
     Transform hight_To_Spawn;
     float old_Posion, new_Posion, spawn_CD, spawn_Timer;
-    public GameObject Platform_1, Platform_2, Platform_3, Platform_4, Platform_5, test_Obj;
+    public GameObject Platform_1, Platform_2, Platform_3, Platform_4,
+    Platform_5, test_Obj, gameover_Pannel;
     public UI_Controller ui_Controller;
+    public Player_Movement playerMovement;
     void Start()
     {
         hight_To_Spawn = GameObject.Find("Hight To Spawn Platform").transform;
@@ -37,10 +39,7 @@ public class Follow_Player : MonoBehaviour
             else
                 spawn_Timer -= Time.deltaTime;
         }
-        else
-        {
-            ui_Controller.game_Over();
-        }
+        
     }
 
     public void spawn_Object(GameObject test)
@@ -99,6 +98,13 @@ public class Follow_Player : MonoBehaviour
                 final_Parent = true;
         }
         while (!final_Parent);
+
+        if (collision.gameObject.tag == "Player")
+        {
+            gameover_Pannel.SetActive(true);
+            ui_Controller.gameover = true;
+        }
+
         testing_area();
         Destroy(parent);
     }

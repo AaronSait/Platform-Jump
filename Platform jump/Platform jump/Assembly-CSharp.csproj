@@ -63,8 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Follow_Player.cs" />
+    <Compile Include="Assets\Scripts\Game_Master.cs" />
     <Compile Include="Assets\Scripts\Hitting_Walls.cs" />
     <Compile Include="Assets\Scripts\Platform_effector.cs" />
+    <Compile Include="Assets\Scripts\Player_Data.cs" />
     <Compile Include="Assets\Scripts\Player_Movement.cs" />
     <Compile Include="Assets\Scripts\UI_Controller.cs" />
     <Compile Include="Assets\Scripts\test_Script.cs" />
